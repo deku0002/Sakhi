@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 selectedUserType = "student";
                 updateCardSelection();
                 showToast("Student selected");
+
+                // ✅ Open StudentPadsActivity
+                Intent intent = new Intent(MainActivity.this, StudentPadsActivity.class);
+                startActivity(intent);
             });
         }
 
@@ -50,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
                 selectedUserType = "distributor";
                 updateCardSelection();
                 showToast("Distributor selected");
+
+                // ✅ Open WardenActivity
+                Intent intent = new Intent(MainActivity.this, WardenActivity.class);
+                startActivity(intent);
             });
         }
 
@@ -64,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (btnSignIn != null) {
             btnSignIn.setOnClickListener(v -> {
-                // For demo: directly go to dashboard
+                // For demo: directly go to student dashboard
                 Intent intent = new Intent(MainActivity.this, StudentDashboardActivity.class);
                 startActivity(intent);
             });
