@@ -14,7 +14,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class WardenActivity extends AppCompatActivity {
 
-    private Button btnScanQR;
+    private Button btnScanQR, btnPharmacyContract;
     private TextView tvScanResult;
 
     @Override
@@ -23,14 +23,22 @@ public class WardenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_warden);
 
         btnScanQR = findViewById(R.id.btn_scan_qr);
+        btnPharmacyContract = findViewById(R.id.btn_pharmacy_contract);
         tvScanResult = findViewById(R.id.tv_scan_result);
 
+        // ✅ Pharmacy button click
+        btnPharmacyContract.setOnClickListener(v -> {
+            Intent intent = new Intent(WardenActivity.this, PharmacyContractActivity.class);
+            startActivity(intent);
+        });
+
+        // ✅ QR scanner button click
         btnScanQR.setOnClickListener(v -> {
             IntentIntegrator integrator = new IntentIntegrator(WardenActivity.this);
             integrator.setPrompt("Scan Student QR Code");
             integrator.setBeepEnabled(true);
             integrator.setOrientationLocked(true);
-            integrator.initiateScan(); // Start scanning
+            integrator.initiateScan();
         });
     }
 
@@ -41,17 +49,6 @@ public class WardenActivity extends AppCompatActivity {
             if (result.getContents() != null) {
                 String qrData = result.getContents();
                 tvScanResult.setText("Scanned QR: " + qrData);
-
-                // ✅ Split data (orderId | padName)
-                String[] parts = qrData.split("\\|");
-                if (parts.length == 2) {
-                    String orderId = parts[0];
-                    String padName = parts[1];
-
-                    Toast.makeText(this,
-                            "Pad: " + padName + "\nOrder ID: " + orderId + "\nHanded over successfully!",
-                            Toast.LENGTH_LONG).show();
-                }
             } else {
                 tvScanResult.setText("Scan cancelled");
             }

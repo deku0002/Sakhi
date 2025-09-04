@@ -8,13 +8,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.google.android.material.button.MaterialButton;
 import com.example.sakhi.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private CardView cardStudent, cardDistributor;
     private MaterialButton btnGetStarted, btnSignIn;
+    private FloatingActionButton btnChatbot;
     private String selectedUserType = "student"; // default selection
 
     @Override
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         cardDistributor = findViewById(R.id.card_distributor);
         btnGetStarted = findViewById(R.id.btn_get_started);
         btnSignIn = findViewById(R.id.btn_sign_in);
+        btnChatbot = findViewById(R.id.btn_chatbot); // chatbot FAB
     }
 
     /** Attach click listeners */
@@ -74,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
             btnSignIn.setOnClickListener(v -> {
                 // For demo: directly go to student dashboard
                 Intent intent = new Intent(MainActivity.this, StudentDashboardActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnChatbot != null) {
+            btnChatbot.setOnClickListener(v -> {
+                // ✅ Open ChatbotActivity
+                Intent intent = new Intent(MainActivity.this, ChatbotActivity.class);
                 startActivity(intent);
             });
         }

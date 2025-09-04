@@ -168,4 +168,17 @@
         app:strokeWidth="1dp"
         style="@style/Widget.Material3.Button.OutlinedButton" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_chatbot"
+        android:layout_width="73dp"
+        android:layout_height="53dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="24dp"
+        android:baselineAlignBottom="true"
+        android:contentDescription="Chatbot"
+        app:backgroundTint="@color/primary_pink"
+        app:srcCompat="@drawable/ic_chatbot" />
+
+
 </LinearLayout>

@@ -9,9 +9,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.sakhi"
-        minSdk 26   // 👈 set this to 26
+        minSdk 26
         targetSdk 34
-        compileSdk 34
         versionCode 1
         versionName "1.0"
     }
@@ -31,6 +30,11 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    // ✅ For AGP 8+ (Gradle 8+)
+    androidResources {
+        noCompress "tflite"
+    }
 }
 
 dependencies {
@@ -39,16 +43,26 @@ dependencies {
     implementation "com.google.android.material:material:1.12.0"
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
 
+    // Navigation
+    def nav_version = "2.7.7"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // QR Code / ZXing
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    implementation 'com.google.zxing:core:3.5.1'
+
+    // TensorFlow Lite Core
+    implementation 'org.tensorflow:tensorflow-lite:2.13.0'
+
+    // (Optional) Support library for TensorBuffer, TensorImage, etc.
+    implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
+
+    // (Optional) GPU Delegate
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.13.0'
+
+    // Testing
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.5"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
-    def nav_version = "2.7.7" // latest stable
-
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-    implementation 'com.google.zxing:core:3.5.1'
-    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'   // Main library
-    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-    implementation 'com.google.zxing:core:3.5.0'
 }
