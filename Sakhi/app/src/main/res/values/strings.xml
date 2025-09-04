@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SAKHI</string>
+    <string name="tagline">Private. Sustainable. Empowering.</string>
+    <string name="get_started">Get Started</string>
+    <string name="already_account">Already have an account?</string>
+    <string name="student">Student</string>
+    <string name="distributor">Distributor</string>
+    <string name="browse_order">Browse &amp; Order</string>
+    <string name="manage_inventory">Manage Inventory</string>
+    <string name="create_account">Create Account</string>
+    <string name="join_community">Join the SAKHI community</string>
+    <string name="username">Username (Anonymous)</string>
+    <string name="hostel">Hostel</string>
+    <string name="room_number">Room Number</string>
+    <string name="password">Password</string>
+    <string name="back">Back</string>
+    <string name="welcome_student">Welcome, %1$s</string>
+    <string name="wellness_journey">Your wellness journey starts here</string>
+    <string name="take_quiz">Take Product Quiz</string>
+    <string name="browse_products">Browse Products</string>
+    <string name="your_impact">Your Impact</string>
+    <string name="products_ordered">Products Ordered</string>
+    <string name="pads_saved">Disposable Pads Saved</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="ai_recommendation">🤖 AI Recommendation</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="quiz_recommendation">Take our personalized quiz to get product recommendations tailored for you!</string>
+    <!-- Menu items -->
+    <string name="action_settings">Settings</string>
+</resources>
